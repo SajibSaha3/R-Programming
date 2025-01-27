@@ -1,0 +1,94 @@
+---
+title: "Class_10_visuallization_ggplot2"
+author: "Sajib saha"
+date: "2025-01-27"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# packages
+loading required packages
+
+# echo is used to hide the section
+
+```{r warning=FALSE, message=FALSE, echo=FALSE} 
+library(ggplot2)
+library(dplyr)
+```
+
+# header
+## Scatter plot
+**relation between the x and y value**
+```{r}
+data("iris")
+```
+
+```{r}
+ggplot(data = iris) + geom_point(mapping= aes(x = Sepal.Length, y= Sepal.Width))+
+  labs(title = "scatter plot of the sepal length and sepal width", x = "Sepal Length", y= "sepal widrh")
+```
+
+```{r}
+ggplot(data = iris)+
+  aes(x= Sepal.Length, y= Sepal.Width)+
+  geom_point()
+
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width))+
+  geom_point(color = "red")
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width))+
+  geom_point(size= 3, col= "blue")
+
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width))+
+  geom_point(size= 3, shape=18)
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width))+
+  geom_point(size= 3, shape=18)
+
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width))+
+  geom_point(size= 3, shape="diamond filled", col= "blue")
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width,col= Species))+
+  geom_point()
+
+
+ggplot(data = iris, aes(x=Sepal.Length, y=Sepal.Width,col= Species))+
+  geom_point()+
+  labs(title = "scatter plot of the sepal length and sepal width", x = "Sepal", y= "sepal widrh")
+```
+#Histogram
+
+
+```{r}
+ggplot(data = iris, aes(x= Sepal.Length))+
+  geom_histogram(binwidth =.3, fill= "lightgreen", col="black")
+
+ggplot(data = iris, aes(x= Sepal.Length))+
+  geom_histogram(bins =15, fill= "lightgreen", col="black")
+ 
+ggplot(data = iris, aes(x= Sepal.Length,fill= Species))+
+  geom_histogram(binwidth =.3,  col="black")
+
+ggplot(data = iris, aes(x= Sepal.Length,fill= Species))+
+  geom_histogram(binwidth =.3,  col="black", alpha= .5)
+
+```
+
+
+
+
+
+
+
+
+
+
+
